@@ -39,7 +39,7 @@ For EvNAS-B and EvNAS-C use EvNASB and EvNASC respectively for --arch option wit
 ([EvNAS_C_imagenet_model_best.pt.tar](https://drive.google.com/file/d/1ulQVVOAiHi6f-yst7XChxuT7QybbwB9Z/view?usp=sharing))<br />
 ** Expected result for EvNAS-A: 24.4% top-1 error (75.6% top-1 accuracy) and 7.4% (92.6% top-5 accuracy) top-5 error with 5.1M model params.<br />
 ** Expected result for EvNAS-B: 24.4% top-1 error (75.6% top-1 accuracy) and 7.4% (92.6% top-5 accuracy) top-5 error with 5.3M model params.<br />
-** Expected result for EvNAS-C: 24.4% top-1 error (75.6% top-1 accuracy) and 7.4% (92.6% top-5 accuracy) top-5 error with 4.9M model params.<br />
+** Expected result for EvNAS-C: 25.1% top-1 error (74.9% top-1 accuracy) and 7.8% (92.2% top-5 accuracy) top-5 error with 4.9M model params.<br />
 
 ## Architecture search (using CIFAR-10 dataset)
 ```

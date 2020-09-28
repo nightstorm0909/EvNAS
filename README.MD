@@ -35,8 +35,8 @@ For EvNAS-B and EvNAS-C use EvNASB and EvNASC respectively for --arch option wit
 python test_imagenet.py --arch EvNASA --model_path EvNAS_A_imagenet_model_best.pth.tar
 ```
 For EvNAS-B and EvNAS-C use EvNASB and EvNASC respectively for --arch option with their pretrained weigths
-([EvNAS_B_imagenet_model_best.pt.tar](https://drive.google.com/file/d/15I5D2vkkGSOemAckxOqDfPCPTPsHeFRR/view?usp=sharing))
-([EvNAS_C_imagenet_model_best.pt.tar](https://drive.google.com/file/d/15I5D2vkkGSOemAckxOqDfPCPTPsHeFRR/view?usp=sharing))<br />
+([EvNAS_B_imagenet_model_best.pt.tar](https://drive.google.com/file/d/1fpwY2fpioWFKmIFvC1DIZEamvdbT6ll5/view?usp=sharing))
+([EvNAS_C_imagenet_model_best.pt.tar](https://drive.google.com/file/d/1ulQVVOAiHi6f-yst7XChxuT7QybbwB9Z/view?usp=sharing))<br />
 ** Expected result for EvNAS-A: 24.4% top-1 error (75.6% top-1 accuracy) and 7.4% (92.6% top-5 accuracy) top-5 error with 5.1M model params.<br />
 ** Expected result for EvNAS-B: 24.4% top-1 error (75.6% top-1 accuracy) and 7.4% (92.6% top-5 accuracy) top-5 error with 5.3M model params.<br />
 ** Expected result for EvNAS-C: 24.4% top-1 error (75.6% top-1 accuracy) and 7.4% (92.6% top-5 accuracy) top-5 error with 4.9M model params.<br />

@@ -32,7 +32,7 @@ For EvNAS-B and EvNAS-C use EvNASB and EvNASC respectively for --arch option wit
 
 **CIFAR-100** ([EvNAS_A_cifar100_weights.pt](https://drive.google.com/file/d/1xEN9eQAB2pIvufqmQpGo_W3-KB9LIUi1/view?usp=sharing))
 ```
-python3 test_cifar.py --arch EvNASA --model_path EvNAS_A_cifar_weights.pt
+python3 test_cifar100.py --arch EvNASA --model_path EvNAS_A_cifar_weights.pt
 ```
 For EvNAS-B and EvNAS-C use EvNASB and EvNASC respectively for --arch option with their pretrained weigths
 ([EvNAS_B_cifar100_weights.pt](https://drive.google.com/file/d/1brjKC4vDUAfbi2QWDewEXVLWxETdVX7g/view?usp=sharing)),

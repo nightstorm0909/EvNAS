@@ -30,6 +30,17 @@ For EvNAS-B and EvNAS-C use EvNASB and EvNASC respectively for --arch option wit
 ** Expected result for EvNAS-B: 2.51% test error rate (97.49% top-1 accuracy) with 3.8M model params.<br />
 ** Expected result for EvNAS-C: 2.55% test error rate (97.45% top-1 accuracy) with 3.4M model params.<br />
 
+**CIFAR-100** ([EvNAS_A_cifar100_weights.pt](https://drive.google.com/file/d/1xEN9eQAB2pIvufqmQpGo_W3-KB9LIUi1/view?usp=sharing))
+```
+python3 test_cifar.py --arch EvNASA --model_path EvNAS_A_cifar_weights.pt
+```
+For EvNAS-B and EvNAS-C use EvNASB and EvNASC respectively for --arch option with their pretrained weigths
+([EvNAS_B_cifar100_weights.pt](https://drive.google.com/file/d/1brjKC4vDUAfbi2QWDewEXVLWxETdVX7g/view?usp=sharing)),
+([EvNAS_C_cifar100_weights.pt](https://drive.google.com/file/d/1WuHmwc9n3BakOqHlcUuqN30MRlRx7ziT/view?usp=sharing))<br />
+** Expected result for EvNAS-A: 16.05% test error rate (83.95% top-1 accuracy) with 3.6M model params. <br />
+** Expected result for EvNAS-B: 16.08% test error rate (83.92% top-1 accuracy) with 3.8M model params.<br />
+** Expected result for EvNAS-C: 16.46% test error rate (83.54% top-1 accuracy) with 3.4M model params.<br />
+
 **ImageNet** ([EvNAS_A_imagenet_model_best.pt.tar](https://drive.google.com/file/d/15I5D2vkkGSOemAckxOqDfPCPTPsHeFRR/view?usp=sharing))
 ```
 python test_imagenet.py --arch EvNASA --model_path EvNAS_A_imagenet_model_best.pth.tar

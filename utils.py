@@ -40,7 +40,22 @@ def accuracy(output, target, topk=(1,)):
 		correct_k = correct[:k].view(-1).float().sum(0)
 		res.append(correct_k.mul_(100.0/batch_size))
 	return res
+'''
+def accuracy2(output, target, topk=(1,)):
+	maxk = max(topk)
+	batch_size = target.size(0)
+	print("[INFO] topk: {}, maxk: {}, batch_size: {}".format(topk, maxk, batch_size))
 
+	_, pred = output.topk(maxk, 1, True, True)
+	pred = pred.t()
+	correct = pred.eq(target.view(1, -1).expand_as(pred))
+
+	res = []
+	for k in topk:
+		correct_k = correct[:k].view(-1).float().sum(0)
+		res.append(correct_k.mul_(100.0/batch_size))
+	return res
+'''
 class Cutout(object):
 	def __init__(self, length):
 		self.length = length
@@ -68,20 +83,38 @@ def _data_transforms_cifar10(args):
 	CIFAR_STD = [0.24703233, 0.24348505, 0.26158768]
 
 	train_transform = transforms.Compose([
-    transforms.RandomCrop(32, padding=4),
-    transforms.RandomHorizontalFlip(),
-    transforms.ToTensor(),
-    transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
-  ])
+		transforms.RandomCrop(32, padding=4),
+		transforms.RandomHorizontalFlip(),
+		transforms.ToTensor(),
+		transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+	])
 	if args.cutout:
 		train_transform.transforms.append(Cutout(args.cutout_length))
 
 	valid_transform = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
-    ])
+		transforms.ToTensor(),
+		transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+		])
 	return train_transform, valid_transform
 
+def _data_transforms_cifar100(args):
+	CIFAR_MEAN = [0.5071, 0.4867, 0.4408]
+	CIFAR_STD = [0.2675, 0.2565, 0.2761]
+
+	train_transform = transforms.Compose([
+		transforms.RandomCrop(32, padding=4),
+		transforms.RandomHorizontalFlip(),
+		transforms.ToTensor(),
+		transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+	])
+	if args.cutout:
+		train_transform.transforms.append(Cutout(args.cutout_length))
+
+	valid_transform = transforms.Compose([
+		transforms.ToTensor(),
+		transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+		])
+	return train_transform, valid_transform
 
 def count_parameters_in_MB(model):
 	return np.sum(np.prod(v.size()) for name, v in model.named_parameters() if "auxiliary" not in name)/1e6
@@ -101,7 +134,6 @@ def save(model, model_path):
 
 def load(model, model_path, gpu = 0):
 	model.load_state_dict(torch.load(model_path, map_location = 'cuda:{}'.format(gpu)), strict=False)
-
 
 def drop_path(x, drop_prob):
 	if drop_prob > 0.:

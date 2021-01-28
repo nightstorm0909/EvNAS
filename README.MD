@@ -1,6 +1,6 @@
-# Evolution of Neural Architecture Search with Weight Sharing
+# Evolving Neural Architecture Search with Weight Sharing
 
-**This code is based on the implementation of  [DARTS](https://github.com/quark0/darts).**
+**This code is based on the implementation of [DARTS](https://github.com/quark0/darts) and [AutoDL-Projects](https://github.com/D-X-Y/AutoDL-Projects).**
 **The training code for the ImageNet dataset is taken from [P-DARTS](https://github.com/chenxin061/pdarts)**
 
 
@@ -18,7 +18,8 @@ given architecture and is also used for improving the performance prediction of 
 during the search process. Furthermore, we use the accuracy of the partially trained architecture on the validation data as a prediction
 of its fitness in order to reduce the search time.
 
-## Pretrained models
+## For Search Space S1
+### Pretrained models
 **CIFAR-10** ([EvNAS_A_cifar_weights.pt](https://drive.google.com/file/d/1NFLOLLBwdq79QB2O4S7lXV4NL6Oho0ba/view?usp=sharing))
 ```
 python3 test_cifar.py --arch EvNASA --model_path EvNAS_A_cifar_weights.pt
@@ -52,12 +53,12 @@ For EvNAS-B and EvNAS-C use EvNASB and EvNASC respectively for --arch option wit
 ** Expected result for EvNAS-B: 24.4% top-1 error (75.6% top-1 accuracy) and 7.4% (92.6% top-5 accuracy) top-5 error with 5.3M model params.<br />
 ** Expected result for EvNAS-C: 25.1% top-1 error (74.9% top-1 accuracy) and 7.8% (92.2% top-5 accuracy) top-5 error with 4.9M model params.<br />
 
-## Architecture search (using CIFAR-10 dataset)
+### Architecture search (using CIFAR-10 dataset)
 ```
 python -i train_search.py --cutout
 ```
 
-## Architecture evaluation (using full-sized models)
+### Architecture evaluation (using full-sized models)
 To evaluate our best cells by training from scratch on CIFAR-10 dataset, run
 ```
 python train.py --cutout --auxiliary --epochs 600 --arch EvNASA	    # when architecture is present in genotype.py
@@ -65,7 +66,7 @@ or
 python train.py --cutout --auxiliary --epochs 600 --dir search_DIR # when architecture is in search_DIR as genotype.pickle file
 ```
 
-## Results
+### Results
 #### CIFAR-10 Result
 ![cifar_table](img/cifar_res.png)
 #### ImageNet Result
@@ -78,3 +79,23 @@ python train.py --cutout --auxiliary --epochs 600 --dir search_DIR # when archit
 #### Reduction Cell of EvNAS-A
 ![reduce_cell](img/reduce_cell.png)
 
+## For Search Space S2
+### Dataset
+To download ImageNet-16-120 use the [link](https://drive.google.com/drive/folders/1T3UIyZXUhMmIuJLOBMIYKAsJknAtrrO4). To use the NAS-201
+benchmark for evaluating the search method, download the file [NAS-Bench-201-v1_1-096897.pth](https://drive.google.com/file/d/16Y0UwGisiouVRxW-W5hEtbxmcHw_0hF_/view)
+
+### Architecture search
+Using CIFAR-10:
+```
+ bash ./searchNAS201.sh cifar10 0 outputs
+```
+Using CIFAR-100:
+```
+ bash ./searchNAS201.sh cifar100 0 outputs
+```
+Using ImageNet-16-120:
+```
+ bash ./searchNAS201.sh ImageNet16-120 0 outputs
+```
+### Results
+![NAS201_table](img/NAS201.png)

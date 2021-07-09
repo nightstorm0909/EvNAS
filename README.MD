@@ -1,4 +1,4 @@
-# Evolving Neural Architecture Search with Weight Sharing
+# [Evolving Neural Architecture Using One Shot Model](https://dl.acm.org/doi/abs/10.1145/3449639.3459275)
 
 **This code is based on the implementation of [DARTS](https://github.com/quark0/darts) and [AutoDL-Projects](https://github.com/D-X-Y/AutoDL-Projects).**
 **The training code for the ImageNet dataset is taken from [P-DARTS](https://github.com/chenxin061/pdarts)**
@@ -99,3 +99,15 @@ Using ImageNet-16-120:
 ```
 ### Results
 ![NAS201_table](img/NAS201.png)
+
+## Reference
+To cite our paper, please use the following:
+```Latex
+@inproceedings{sinha2021evolving,
+  title={Evolving neural architecture using one shot model},
+  author={Sinha, Nilotpal and Chen, Kuan-Wen},
+  booktitle={Proceedings of the Genetic and Evolutionary Computation Conference},
+  pages={910--918},
+  year={2021}
+}
+```

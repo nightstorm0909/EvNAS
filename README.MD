@@ -1,4 +1,4 @@
-# [Evolving Neural Architecture Using One Shot Model](https://dl.acm.org/doi/abs/10.1145/3449639.3459275)
+# Evolving Neural Architecture Using One Shot Model [[Paper]](https://dl.acm.org/doi/abs/10.1145/3449639.3459275) [[Video]](https://www.youtube.com/watch?v=dzUU8D_S4aI)
 
 **This code is based on the implementation of [DARTS](https://github.com/quark0/darts) and [AutoDL-Projects](https://github.com/D-X-Y/AutoDL-Projects).**
 **The training code for the ImageNet dataset is taken from [P-DARTS](https://github.com/chenxin061/pdarts)**
